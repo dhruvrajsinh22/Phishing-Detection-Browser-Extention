@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Phishing & Malware URL Detector",
+  "version": "1.0",
+  "description": "Detects phishing and malware from URLs using machine learning",
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage",
+    "notifications"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.jpg",
+      "48": "icons/icon48.jpg",
+      "128": "icons/icon128.jpg"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.jpg",
+    "48": "icons/icon48.jpg",
+    "128": "icons/icon128.jpg"
+  }
+}
